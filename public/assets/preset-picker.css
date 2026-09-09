@@ -1,0 +1,13 @@
+.modelos-visuais{border:0;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;min-width:0}
+.modelos-visuais legend{font-size:16px;font-weight:700;margin-bottom:14px}
+.modelos-visuais .modelo-visual-card{display:grid;grid-template-columns:20px minmax(0,1fr);gap:12px;align-content:start;border:1px solid var(--line);border-radius:12px;padding:18px;cursor:pointer;min-width:0}
+.modelo-visual-card:has(input:checked){border-color:var(--orange);box-shadow:inset 0 0 0 1px var(--orange)}
+.modelo-visual-card:focus-within{outline:2px solid var(--orange);outline-offset:3px}
+.formulario .modelo-visual-card input[type="radio"]{width:18px;height:18px;min-height:0;padding:0;accent-color:var(--orange);margin:2px 0;align-self:start}
+.modelo-visual-nome{font-weight:750;line-height:1.4}
+.modelo-visual-card small,.modelo-miniatura{grid-column:1/-1}
+.modelo-visual-card small{font-size:13px;line-height:1.5}
+.modelo-miniatura{display:grid;gap:8px;background:var(--soft);border:1px solid var(--line);padding:12px;border-radius:10px;font-size:12px}
+.modelo-miniatura-topo{font-weight:800;border-bottom:2px solid var(--orange);padding-bottom:8px}
+.modelo-miniatura-item{display:flex;justify-content:space-between;border:1px solid var(--line);border-radius:6px;padding:12px}
+@media(max-width:520px){.modelos-visuais{grid-template-columns:1fr}}

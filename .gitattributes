@@ -1,0 +1,3 @@
+# Migrations aplicadas são imutáveis e validadas por checksum.
+# Não normalize finais de linha destes arquivos entre Windows e Linux.
+migrations/*.sql -text

@@ -1,0 +1,53 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      APP_NAME: ${APP_NAME}
+      APP_ENV: ${APP_ENV}
+      APP_DEBUG: ${APP_DEBUG}
+      APP_URL: ${APP_URL}
+      APP_TIMEZONE: ${APP_TIMEZONE}
+      APP_KEY: ${APP_KEY}
+      TRUSTED_PROXY_IPS: ${TRUSTED_PROXY_IPS:-}
+      LEGAL_OPERATOR_NAME: ${LEGAL_OPERATOR_NAME}
+      PRIVACY_CONTACT_EMAIL: ${PRIVACY_CONTACT_EMAIL}
+      SESSION_NAME: ${SESSION_NAME}
+      SESSION_LIFETIME_MINUTES: ${SESSION_LIFETIME_MINUTES}
+      SESSION_SECURE_COOKIE: ${SESSION_SECURE_COOKIE}
+      SESSION_SAME_SITE: ${SESSION_SAME_SITE}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_CHARSET: ${DB_CHARSET}
+      DB_STARTUP_MAX_ATTEMPTS: ${DB_STARTUP_MAX_ATTEMPTS}
+      UPLOAD_MAX_BYTES: ${UPLOAD_MAX_BYTES}
+      TRACKING_LINK_TTL_DAYS: ${TRACKING_LINK_TTL_DAYS}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - app_storage:/var/www/html/storage
+    restart: unless-stopped
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "--silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+volumes:
+  app_storage:
+  mysql_data:

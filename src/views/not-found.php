@@ -1,0 +1,1 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Página não encontrada</title><link rel="stylesheet" href="/assets/app.css?v=20260826-responsivo1"></head><body><main class="pagina-erro"><h1>404</h1><p>Página não encontrada.</p><a href="/">Voltar ao início</a></main></body></html>
