@@ -1,4 +1,11 @@
-# MJDev Digital — Plataforma de Cardápio Digital - Projeto em Teste
+# ⚠️ PROJETO NÃO FINALIZADO (TRABALHO EM PROGRESSO)
+
+> **Atenção:** Este repositório contém a versão em desenvolvimento de uma Plataforma SaaS de Cardápio Digital. O código atual **não está finalizado**, encontra-se em fase beta/testes e **pode conter bugs, instabilidades ou funcionalidades incompletas**.
+
+---
+
+# MJDev Digital — Plataforma de Cardápio Digital
+
 
 Aplicação PHP 8.3 + MySQL 8 para criação de catálogos digitais e recebimento de pedidos. O frontend preserva a identidade visual do protótipo original, enquanto autenticação, preços, pedidos e isolamento entre estabelecimentos são processados no servidor.
 
